@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Footer = () => {
+  console.log("hello")
   return (
     <div>
       <div>&#169;2023 SeaLion. All rights reserved.</div>
