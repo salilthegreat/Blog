@@ -1,0 +1,48 @@
+.mainTitle{
+    font-size: 100px;
+}
+.conatainer{
+
+}
+
+.selectTitle{
+    margin: 20px 0px;
+}
+
+.items{
+    display: flex;
+    gap: 50px;
+}
+
+.item{
+    border: 5px solid #bbb;
+    border-radius: 5px;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    background-size: cover !important;
+}
+
+.item:nth-child(1){
+    background: url("https://img.freepik.com/free-vector/design-tools-concept-illustration_114360-1227.jpg?w=1060&t=st=1691691917~exp=1691692517~hmac=1afd371a7a838e1cbd7945a498aea381441382a1fd156c913266222ea5280e0e");
+}
+
+.item:nth-child(2){
+    background: url("https://img.freepik.com/premium-psd/3d-interface-website-presentation-mockup-isolated_359791-218.jpg?w=1480");
+}
+
+.item:nth-child(3){
+    background: url("https://img.freepik.com/free-photo/representation-user-experience-interface-design-smartphone_23-2150165977.jpg?w=1800&t=st=1691692532~exp=1691693132~hmac=f2eac82fdd16fd21cdf9957959a12b8e49c33d9d7c0ba12488ae7e299d427c24");
+}
+
+.title{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.item:hover .title{
+    color: #53c28b;
+}
