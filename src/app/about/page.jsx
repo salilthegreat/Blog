@@ -10,7 +10,7 @@ const About = () => {
         <Image
           src="https://img.freepik.com/free-photo/people-business-meeting-high-angle_23-2148911819.jpg?w=1800&t=st=1691666527~exp=1691667127~hmac=a3fce52cc4198f5bb95598783f00c4a2994d547bc60d6bbbbba7f83c8fbfd041"
           fill={true}
-          alt=""
+          alt="image"
           className={styles.img}
         />
         <div className={styles.imgText}>
