@@ -2,9 +2,10 @@ import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import { notFound } from 'next/navigation'
+import { items } from "@/app/portfolio/[category]/data";
 
 async function getData(id) {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`,{
+  const res = await fetch(`http://localhost:3000/api/posts/${id}`,{
     cache:"no-store"
   });
 
@@ -21,7 +22,7 @@ const BlogPost = async ({ params }) => {
       <div className={styles.top}>
         <div className={styles.info}>
           <h1 className={styles.title}>{data.title}</h1>
-          <p className={styles.desc}>{data.body}</p>
+          <p className={styles.desc}>{data.desc}</p>
           <div className={styles.author}>
             <Image
               src={
@@ -38,7 +39,7 @@ const BlogPost = async ({ params }) => {
         <div className={styles.imgContainer}>
           <Image
             src={
-              "https://img.freepik.com/premium-photo/stone-chariot-hampi-vittala-temple-sunset_211251-1016.jpg?w=1800"
+              data.img
             }
             alt="post image"
             fill={true}
@@ -48,23 +49,7 @@ const BlogPost = async ({ params }) => {
       </div>
       <div className={styles.content}>
         <p className={styles.text}>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, nemo
-          esse? Culpa vero in maiores quo nam eos molestiae, numquam consectetur
-          architecto saepe laborum ipsam illo repellat provident deleniti iusto?
-          <br />
-          <br />
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione
-          magnam laudantium accusantium minima odio, quas dignissimos explicabo,
-          sed fuga dolore nulla minus perspiciatis voluptas a alias voluptatem,
-          eaque vel quam! Lorem ipsum dolor, sit amet consectetur adipisicing
-          elit. Qui, error? Optio soluta deleniti dignissimos quas ipsum odio!
-          Voluptates ratione illo adipisci ipsum, voluptatibus excepturi
-          officia, consectetur vitae sed libero repellat!
-          <br />
-          <br />
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id aut quo
-          mollitia earum? At vero molestiae odio quibusdam, illum eligendi,
-          minima eaque amet quidem sit id sequi cupiditate consectetur labore?
+            {data.content}
         </p>
       </div>
     </div>

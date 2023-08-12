@@ -2,14 +2,14 @@ import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 
 async function getData() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts",{
+  const res = await fetch("http://localhost:3000/api/posts",{
     cache:"no-store"
   });
-
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+     throw new Error("Somethig went wrong on our side")
   }
   return res.json();
 }
@@ -18,7 +18,7 @@ const Blog = async() => {
   const data = await getData();
   return (
     <div className={styles.mainContainer}>
-      <Link href={"/blog/testId"} className={styles.container}>
+      {/* <Link href={"/blog/testId"} className={styles.container}>
         <div className={styles.imgContainer}>
           <Image
             src={
@@ -91,14 +91,12 @@ const Blog = async() => {
             by the elements of earth, air, water, and fire
           </p>
         </div>
-      </Link>
+      </Link> */}
       {data.map((item) => (
-        <Link key={item.id} href={`/blog/${item.id}`} className={styles.container}>
+        <Link key={item._id} href={`/blog/${item._id}`} className={styles.container}>
           <div className={styles.imgContainer}>
             <Image
-              src={
-                "https://img.freepik.com/premium-photo/stone-chariot-hampi-vittala-temple-sunset_211251-1016.jpg?w=1800"
-              }
+              src={item.img}
               alt="image"
               width={400}
               height={250}
@@ -108,7 +106,7 @@ const Blog = async() => {
           <div className={styles.content}>
             <h1 className={styles.title}>{item.title}</h1>
             <p className={styles.desc}>
-              {item.body}
+              {item.desc}
             </p>
           </div>
         </Link>
