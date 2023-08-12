@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import { notFound } from 'next/navigation'
-import { items } from "@/app/portfolio/[category]/data";
 
 async function getData(id) {
   const res = await fetch(`http://localhost:3000/api/posts/${id}`,{
@@ -13,6 +12,16 @@ async function getData(id) {
     return notFound()
   }
   return res.json();
+}
+
+//for dynamic pages generateMetadata() is used
+
+export async function generateMetadata({params}){
+  const page = await getData(params.id);
+  return{
+    title:page.title,
+    description:page.desc
+  }
 }
 
 const BlogPost = async ({ params }) => {

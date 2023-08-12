@@ -3,6 +3,13 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import Button from "@/components/Button/Button";
 
+
+//for static pages metadata is used
+export const metadata = {
+  title: "TemplePedia contact information",
+  description: "Contact me for any paid work or collaboration",
+};
+
 const Contact = () => {
   return (
     <div className={styles.container}>
