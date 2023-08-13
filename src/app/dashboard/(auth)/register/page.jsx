@@ -43,7 +43,10 @@ const Register = () => {
         <button className={styles.button}>Register</button>
       </form>
       {err && "Something went wrong"}
-      <Link href={"/dashboard/login"}>Login with an existing account</Link>
+      <span className={styles.or}>- OR -</span>
+      <Link className={styles.link} href="/dashboard/login">
+        Login with an existing account
+      </Link>
     </div>
   )
 }
