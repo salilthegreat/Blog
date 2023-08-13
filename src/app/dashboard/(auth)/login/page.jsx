@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import styles from "./page.module.css";
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
 
@@ -10,6 +11,13 @@ const Login = () => {
     const email = e.target[0].value;
     const password = e.target[1].value;
     signIn("credentials",{email,password})
+  }
+
+  const session = useSession()
+  const router = useRouter()
+
+  if(session.status === "authenticated"){
+    return router.push("/dashboard")
   }
 
   return (

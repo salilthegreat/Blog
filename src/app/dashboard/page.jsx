@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import styles from "./page.module.css"
 import useSWR from 'swr'
 import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 
 
 const Dashboard = () => {
@@ -26,13 +27,18 @@ const Dashboard = () => {
   //   getData()
   // },[])
 
-  const session = useSession()
-
   const fetcher = (...args) => fetch(...args).then(res => res.json())
-
   const { data, error, isLoading } = useSWR('https://jsonplaceholder.typicode.com/posts', fetcher)
+  const session = useSession()
+  const router = useRouter()
+  if(session.status === "loading"){
+    return <div>loading</div>
+  }
 
-  console.log(session)
+  if(session.status === "unauthenticated"){
+    return router.push("/dashboard/login")
+  }
+
   return (
     <div className={styles.container}>Dashboard</div>
   )
