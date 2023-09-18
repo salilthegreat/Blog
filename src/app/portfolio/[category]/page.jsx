@@ -30,6 +30,7 @@ const Category = ({ params }) => {
               className={styles.img}
               fill={true}
               src={item.image}
+              alt=""
             />
           </div>
         </div>
